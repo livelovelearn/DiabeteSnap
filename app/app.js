@@ -9,13 +9,13 @@
     config.$inject = ['$routeProvider'];
     function config($routeProvider) {
         $routeProvider
-            .when('/overview', {
+            .when('/pages/overview', {
                 controller: 'OverviewController',
-                templateUrl: 'overview.view.html'
+                templateUrl: 'app/views/overview.view.html'
             })
             .when('/login', {
                 controller: 'LoginController',
-                templateUrl: 'login.view.html',
+                templateUrl: 'app/views/login.view.html',
                 controllerAs: 'vm'
             })
             .otherwise({redirectTo: '/login'});
@@ -29,7 +29,7 @@
 
         $rootScope.$on('$locationChangeStart', function () {
 
-            var restrictedPage = $location.path() === '/overview';
+            var restrictedPage = $location.path() === '/pages/overview';
             var loggedIn = $rootScope.globals.currentUser;
             if (restrictedPage && !loggedIn) {
                 $location.path('/login');
@@ -37,7 +37,7 @@
 
             var authPage = $location.path() === '/login';
             if (authPage && loggedIn) {
-                $location.path('/overview');
+                $location.path('/pages/overview');
             }
 
             var logoutRequest = $location.path() === '/logout';

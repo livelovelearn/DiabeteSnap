@@ -21,7 +21,7 @@
             AuthenticationService.Login(vm.uname, vm.pwd, function (response) {
                 if (response.errorMessage == 'Success') {
                     AuthenticationService.SetCredentials(vm.pwd, vm.uname);
-                    $location.path('/overview');
+                    $location.path('/pages/overview');
                 }
                 else if (response.errorCode == 101) {
                     vm.dataLoading = false;
