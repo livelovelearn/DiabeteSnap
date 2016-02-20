@@ -1,0 +1,86 @@
+.modal-footer {
+    border-top: 0px;
+}
+
+#loginModal {
+    top: 20%;
+}
+
+.vertical-align-wbm{
+    vertical-align: sub;
+    padding-right: 2em;
+}
+
+.hundred {
+    width: 100%;
+}
+
+.pad-right-1 {
+    padding-right: 1em;
+}
+
+.pad-top-1 {
+    padding-top: 1em;
+}
+
+.pad-0 {
+    padding: 0;
+}
+
+.thirty-percent {
+    width: 30%
+}
+
+.twenty-percent {
+    width: 20%
+}
+
+.ten-percent {
+    width: 10%
+}
+
+.five-percent {
+    width: 5%
+}
+
+.mouse-link {
+    cursor: pointer;
+}
+
+.break-able {
+    word-break: break-all;
+}
+
+.table-fixed {
+    table-layout: fixed;
+}
+
+tr td, table th {
+    padding-top: 1em;
+    padding-bottom: 0.5em;
+    vertical-align: initial;
+    padding-left: 0.25em;
+}
+
+.black {
+    color: black !important
+}
+
+.center-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.light-gray-centered {
+    color: #ccc;
+    display: table;
+    margin: 0 auto;
+}
+
+
+table.bordered-left td + td, table.bordered-left th + th {
+    border-left: 1px solid #ccc;
+    padding-left:10px;
+    padding-right:10px;
+}
