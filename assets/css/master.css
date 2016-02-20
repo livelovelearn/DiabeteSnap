@@ -11,6 +11,10 @@
     padding-right: 2em;
 }
 
+.margin-bottom-0 {
+    margin-bottom: 0 !important;
+}
+
 .hundred {
     width: 100%;
 }
