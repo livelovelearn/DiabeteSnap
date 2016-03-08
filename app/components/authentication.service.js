@@ -16,27 +16,25 @@
         return service;
 
         function Login(uname, pwd, callback) {
-
-            /* var shaObj = new jsSHA("SHA-1", "TEXT");
+            var shaObj = new jsSHA("SHA-1", "TEXT");
             shaObj.update(pwd);
             var hash = shaObj.getHash("B64");
-            var params = {"authCode": hash};
-            var authApi = 'services/rest/1.0/auth/statuscheck';
-            var config = {"TRANSACTION_ID": 123}
-
-             $http({
+            var params = {
+                'apiKey': 'rWXeTPz4_S4x1W1pRl9v9dLjZrzcMpWc',
+                'q': '{"username":"' + uname + '","pwd":"' + hash + '"}"',
+                'f': '{"patientId": 1}"',
+                'l': 1
+            };
+            var authApi = 'https://api.mlab.com/api/1/databases/diabetesnap-db/collections/Profile';
+            $http({
                 url: authApi,
                 method: 'GET',
-                params: params,
-                headers: config
-            })
-                .success(function (response) {
-                    callback(response.status);
-                });*/
-            var response = {};
-            response.errorMessage = 'Success';
-            callback(response);
-
+                params: params
+            }).then(function successCallback(response) {
+                callback(response.data);
+            }, function errorCallback(response) {
+                callback(response.data);
+            });
         }
 
         function SetCredentials(uname, pwd) {

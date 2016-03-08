@@ -19,11 +19,12 @@
         function login() {
             vm.dataLoading = true;
             AuthenticationService.Login(vm.uname, vm.pwd, function (response) {
-                if (response.errorMessage == 'Success') {
+                console.log(response)
+                if (typeof response !== 'undefined' && response.length) {
                     AuthenticationService.SetCredentials(vm.pwd, vm.uname);
                     $location.path('/pages/overview');
                 }
-                else if (response.errorCode == 101) {
+                else if (typeof response !== 'undefined' && !response.hasOwnProperty('patientId')) {
                     vm.dataLoading = false;
                     vm.error = 'Invalid credentials';
                 }
@@ -32,7 +33,6 @@
                     vm.error = 'Please try again later. We are unable process your request';
                 }
             });
-
         };
     }
 })();
