@@ -10,7 +10,7 @@
 
             var pid = $cookieStore.get('globals')._pid;
 
-            var fhirPatientApi = 'http://polaris.i3l.gatech.edu:8080/gt-fhir-webapp/base/Patient/' + pid;
+            var fhirPatientApi = '//polaris.i3l.gatech.edu:8080/gt-fhir-webapp/base/Patient/' + pid;
             $http({
                 url: fhirPatientApi,
                 method: 'GET'

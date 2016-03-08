@@ -25,7 +25,7 @@
                 'f': '{"patientId": 1}"',
                 'l': 1
             };
-            var authApi = 'https://api.mlab.com/api/1/databases/diabetesnap-db/collections/Profile';
+            var authApi = '//api.mlab.com/api/1/databases/diabetesnap-db/collections/Profile';
             $http({
                 url: authApi,
                 method: 'GET',
