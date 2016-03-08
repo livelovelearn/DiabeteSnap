@@ -3,24 +3,21 @@
 
     angular
         .module('app')
-        .controller('OverviewController', function ($scope, $http) {
+        .controller('OverviewController', function ($scope, $cookieStore, $http) {
             $scope.loading = true;
-
             $scope.date = new Date();
+            $scope.patient = {};
 
-            /*
-             var config = {
-             "TRANSACTION_ID": 123
-             }
+            var pid = $cookieStore.get('globals')._pid;
 
-             $http({
-             url: "services/rest/1.0/release/info",
-             method: 'GET',
-             headers: config
-             }).success(function (response) {
-
-             });
-             */
+            var fhirPatientApi = 'http://polaris.i3l.gatech.edu:8080/gt-fhir-webapp/base/Patient/' + pid;
+            $http({
+                url: fhirPatientApi,
+                method: 'GET'
+            }).then(function successCallback(response) {
+                $scope.patient = response.data;
+            }, function errorCallback(response) {
+            });
 
         });
 })();

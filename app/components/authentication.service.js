@@ -37,7 +37,7 @@
             });
         }
 
-        function SetCredentials(uname, pwd) {
+        function SetCredentials(uname, pwd, pid) {
             var shaObj = new jsSHA("SHA-1", "TEXT");
             shaObj.update(pwd);
             var authdata = shaObj.getHash("B64");
@@ -45,8 +45,10 @@
             $rootScope.globals = {
                 currentUser: {
                     authdata: authdata
-                }
+                },
+                _pid : pid
             };
+            console.log($rootScope.globals);
             $cookieStore.put('globals', $rootScope.globals);
         }
 

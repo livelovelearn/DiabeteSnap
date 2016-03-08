@@ -19,9 +19,8 @@
         function login() {
             vm.dataLoading = true;
             AuthenticationService.Login(vm.uname, vm.pwd, function (response) {
-                console.log(response)
-                if (typeof response !== 'undefined' && response.length) {
-                    AuthenticationService.SetCredentials(vm.pwd, vm.uname);
+                if (typeof response !== 'undefined' && response.length === 1 && response[0].hasOwnProperty('patientId')) {
+                    AuthenticationService.SetCredentials(vm.pwd, vm.uname, response[0].patientId);
                     $location.path('/pages/overview');
                 }
                 else if (typeof response !== 'undefined' && !response.hasOwnProperty('patientId')) {
